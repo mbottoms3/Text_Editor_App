@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const path = require('path');
 const { InjectManifest } = require('workbox-webpack-plugin');
+const { LibManifestPlugin } = require('webpack');
 
 module.exports = () => {
   return {
@@ -17,7 +18,7 @@ module.exports = () => {
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html',
-        title: "Webpack Plugin",
+        title: "Jate",
       }),
 
       new InjectManifest({
@@ -26,14 +27,17 @@ module.exports = () => {
       }),
 
       new WebpackPwaManifest({
+        filename: 'manifest.json',
+        display: 'standalone',
+        orientation: 'portrait',
         fingerprints: false,
         inject: true,
         name: "Progressive Web Application",
         short_name: "jate",
         description: "PWA Text Editor",
         background_color: '#ffffff',
-        start_url: './',
-        publicPath: './',
+        start_url: '/',
+        publicPath: '/',
         icons: [
           {
             src: path.resolve("src/images/logo.png"),

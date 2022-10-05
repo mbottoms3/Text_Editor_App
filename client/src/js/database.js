@@ -12,23 +12,24 @@ const initdb = async () =>
     },
   });
 
-export const putDb = async (content) => {
-  const openDB = await openDB("jate", 1 );
-  const tx = openDB.transaction("jate", "readwrite");
-  const store = tx.objectStore("jate");
-  const request = store.put({id: 1, cont: content });
-  const result = await request;
-  console.log("data saved to the database", result);
-}
+  export const putDb = async (content) => {
+    const openDB = await openDB("jate", 1 );
+    const tx = openDB.transaction("jate", "readwrite");
+    const store = tx.objectStore("jate");
+    const request = store.put({id: 1, stuff: content });
+    const result = await request;
+    console.log("data saved to the database", result);
+  }
+  
+  export const getDb = async () => {
+    const openDB = await openDB("jate", 1);
+    const tx = openDB.transaction("jate", "readonly");
+    const store = tx.objectStore("jate");
+    const request = store.getAll();
+    const result = await request;
+    console.log("data retrieved", result);
+    return result;
+  }
 
-export const getDb = async () => {
-  const openDB = await openDB("jate", 1);
-  const tx = openDB.transaction("jate", "readonly");
-  const store = tx.objectStore("jate");
-  const request = store.getAll();
-  const result = await request;
-  console.log("data retrieved", result);
-  return result;
-}
-
+  
 initdb();

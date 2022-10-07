@@ -36,8 +36,8 @@ module.exports = () => {
         short_name: "jate",
         description: "PWA Text Editor",
         background_color: "#ffffff",
-        start_url: "./",
-        publicPath: "./",
+        start_url: "/",
+        publicPath: "/",
         icons: [
           {
             src: path.resolve("src/images/logo.png"),

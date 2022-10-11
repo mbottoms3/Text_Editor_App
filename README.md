@@ -17,6 +17,8 @@ This application allows users to create notes or code snippets regardless of hav
 
 The GitHub Repository can be found here: https://github.com/mbottoms3/Text_Editor_App
 
+The deployed application can be found here: https://serene-sea-66229.herokuapp.com/
+
 ## Usage
 
 NA
